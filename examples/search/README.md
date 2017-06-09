@@ -1,4 +1,4 @@
-# Simple List Example
+# Search Example
 
 ## To run locally
 
