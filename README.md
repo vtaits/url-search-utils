@@ -79,6 +79,7 @@ setSearchParams({
   filters: [1, 2, 3],
 }, {
   perPage: 'page_size',
+}, {
   date: (value) => value.format('YYYY-MM-DD'),
 })
 
