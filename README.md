@@ -22,11 +22,11 @@ parseHashParams(config) // parse get-like arguments in hash
 
 `config` is an object with keys is get-params names and values is one of:
 
- - `'number'` for numeric params
- - `'array-of-strings'` for arrays of strings
- - `'array-of-numbers'` for arrays of numbers
- - `'exclude'` for exclude param from result
- - `function(value, accumulator = initialValue) {...}` where value is current value of found get-param and accumulator is value from previous function call if param with current name occurs several times (`undefined` by default)
+ - `'number'` for numeric params.
+ - `'array-of-strings'` for arrays of strings.
+ - `'array-of-numbers'` for arrays of numbers.
+ - `'exclude'` for exclude param from result.
+ - `function(value, accumulator = initialValue) {...}` where value is current value of found get-param and accumulator is value from previous function call if param with current name occurs several times (`undefined` by default).
 
 For example:
 
@@ -65,9 +65,9 @@ setHashParams(values, mapParamsNames, config) // set get-like arguments in hash
 
 `config` is an object with keys is specific keys from `values` (or values or `mapParamsNames`) and values:
 
- - `'include-if-falsy'` for include params with falsy values as empty strings to query
- - `'exclude'` for exclude param from result
- - `function(value) {...}` where value is value for serialize
+ - `'include-if-falsy'` for include params with falsy values as empty strings to query.
+ - `'exclude'` for exclude param from result.
+ - `function(value) {...}` where value is value for serialize. If returns `null`, param won't included to search.
  
  For example:
 
