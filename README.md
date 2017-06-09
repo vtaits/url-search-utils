@@ -63,7 +63,7 @@ setHashParams(values, mapParamsNames, config) // set get-like arguments in hash
 
 `mapParamsNames` is an object with keys is specific keys from `values` and values is params names for set to query.
 
-`config` is an object with keys is specific keys from `values` (or values or `mapParamsNames`) and values:
+`config` is an object with keys is specific keys from `values` (or values from `mapParamsNames`) and values:
 
  - `'include-if-falsy'` for include params with falsy values as empty strings to query.
  - `'exclude'` for exclude param from result.
