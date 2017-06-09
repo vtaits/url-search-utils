@@ -8,6 +8,11 @@ export default function stringifyParams(params, mapParamsNames = {}, paramsTypes
         if (typeof paramsTypes[paramName] === 'function') {
           const mappedParamValue = paramsTypes[paramName](paramValue)
 
+          if (mappedParamValue === null ||
+            typeof mappedParamValue === 'undefined') {
+            return null
+          }
+
           return `${paramName}=${encodeURIComponent(mappedParamValue)}`
         }
 
@@ -37,7 +42,7 @@ export default function stringifyParams(params, mapParamsNames = {}, paramsTypes
         return null
       }
 
-      return `${paramName}=${encodeURIComponent(paramValue)}` 
+      return `${paramName}=${encodeURIComponent(paramValue)}`
     })
     .filter((item) => item !== null)
     .join('&')

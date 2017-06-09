@@ -111,6 +111,23 @@ test('should apply function for parameter', () => {
   })
 })
 
+test('should not include function result for parameter if function returns null', () => {
+  const result = stringifyParams({
+    param1: 'value1',
+    param2: 'value2',
+    mappedParam: 'test',
+  }, {}, {
+    mappedParam: () => null,
+  })
+
+  const parsedResult = parseQuery(result)
+
+  expect(parsedResult).toEqual({
+    param1: 'value1',
+    param2: 'value2',
+  })
+})
+
 it('should throw an exception for unknown param type', () => {
   expect(() => {
     stringifyParams({
