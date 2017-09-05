@@ -16,8 +16,17 @@ import {parseSearchParams, parseHashParams} from 'url-search-utils';
 
 ...
 
-parseSearchParams(config) // parse get arguments
-parseHashParams(config) // parse get-like arguments in hash
+// parse get arguments
+// e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
+parseSearchParams(config)
+
+// parse get-like arguments in hash
+// e.g. http://127.0.0.1:8080/page/#foo=5&bar=baz
+parseHashParams(config)
+
+// parse location-query-like arguments in hash
+// e.g. http://127.0.0.1:8080/#/page/?foo=5&bar=baz
+parseHashLocationQuery(config)
 ```
 
 `config` is an object with keys is get-params names and values is one of:
@@ -57,6 +66,17 @@ import {setSearchParams, setHashParams} from 'url-search-utils';
 
 setSearchParams(values, mapParamsNames, config) // set get arguments
 setHashParams(values, mapParamsNames, config) // set get-like arguments in hash
+// set get arguments
+// e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
+setSearchParams(values, mapParamsNames, config)
+
+// set get-like arguments in hash
+// e.g. http://127.0.0.1:8080/page/#foo=5&bar=baz
+setHashParams(values, mapParamsNames, config)
+
+// set location-query-like arguments in hash
+// e.g. http://127.0.0.1:8080/#/page/?foo=5&bar=baz
+setHashLocationQuery(values, mapParamsNames, config)
 ```
 
 `values` is an object that should be setted to query.
