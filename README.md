@@ -12,7 +12,7 @@ npm install url-search-utils --save
 ### Parsing query
 
 ```
-import {parseSearchParams, parseHashParams} from 'url-search-utils';
+import {parseSearchParams, parseHashParams, parseHashLocationQuery} from 'url-search-utils';
 
 ...
 
@@ -60,12 +60,10 @@ const parsed = parseSearchParams({
 ### Setting query
 
 ```
-import {setSearchParams, setHashParams} from 'url-search-utils';
+import {setSearchParams, setHashParams, setHashLocationQuery} from 'url-search-utils';
 
 ...
 
-setSearchParams(values, mapParamsNames, config) // set get arguments
-setHashParams(values, mapParamsNames, config) // set get-like arguments in hash
 // set get arguments
 // e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
 setSearchParams(values, mapParamsNames, config)
