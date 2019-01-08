@@ -2,4 +2,3 @@ examples
 .eslint*
 .npmignore
 .babelrc
-webpack.*
