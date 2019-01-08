@@ -4,6 +4,7 @@ const path = require('path')
 const context = path.join(__dirname, 'src')
 
 module.exports = {
+  mode: 'development',
   context,
   entry: './index.js',
   output: {
@@ -21,9 +22,6 @@ module.exports = {
     }],
   },
   resolve: {
-    alias: {
-      'url-search-utils': path.join(__dirname, '../../dist/url-search-utils.js'),
-    },
     modules: [
       'src',
       'node_modules',
