@@ -1,55 +1,55 @@
 export default function parseQuery(search, paramsTypes = {}) {
   if (search.length === 0) {
-    return {}
+    return {};
   }
 
   return search.split('&')
-    .reduce((result, searchItem) => {
-      const [name, rawValue] = searchItem.split('=')
-      const value = decodeURIComponent(rawValue)
+    .reduce((res, searchItem) => {
+      const [name, rawValue] = searchItem.split('=');
+      const value = decodeURIComponent(rawValue);
 
       if (paramsTypes[name]) {
         if (typeof paramsTypes[name] === 'function') {
-          result[name] = paramsTypes[name](value, result[name])
+          res[name] = paramsTypes[name](value, res[name]);
 
-          return result
+          return res;
         }
 
         switch (paramsTypes[name]) {
           case 'array-of-strings':
-            if (!result[name]) {
-              result[name] = []
+            if (!res[name]) {
+              res[name] = [];
             }
 
-            result[name].push(value)
+            res[name].push(value);
 
-            return result
+            return res;
 
           case 'array-of-numbers':
-            if (!result[name]) {
-              result[name] = []
+            if (!res[name]) {
+              res[name] = [];
             }
 
-            result[name].push(parseFloat(value))
+            res[name].push(parseFloat(value));
 
-            return result
+            return res;
 
           case 'number':
-            result[name] = parseFloat(value)
+            res[name] = parseFloat(value);
 
-            return result
+            return res;
 
           case 'exclude':
 
-            return result
+            return res;
 
           default:
-            throw new Error(`Unknown type of parameter for parse "${name}": "${paramsTypes[name]}"`)
+            throw new Error(`Unknown type of parameter for parse "${name}": "${paramsTypes[name]}"`);
         }
       }
 
-      result[name] = value
+      res[name] = value;
 
-      return result
-    }, {})
+      return res;
+    }, {});
 }
