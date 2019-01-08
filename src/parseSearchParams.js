@@ -1,7 +1,9 @@
 import parseQuery from './parseQuery'
 
-export default function parseSearchParams(paramsTypes = {}) {
-  const search = window.location.search
+export const prepareSearch = (search) => search.substring(1, search.length);
 
-  return parseQuery(search.substring(1, search.length), paramsTypes)
+export default function parseSearchParams(paramsTypes = {}) {
+  const search = prepareSearch(window.location.search)
+
+  return parseQuery(search, paramsTypes)
 }

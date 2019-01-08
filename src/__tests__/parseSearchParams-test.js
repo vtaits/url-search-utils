@@ -1,15 +1,9 @@
-import parseSearchParams from '../parseSearchParams'
+import { prepareSearch } from '../parseSearchParams'
 
-test('should parse search params', () => {
-  Object.defineProperty(window.location, 'search', {
-    writable: true,
-    value: '?foo=5&bar=baz',
-  })
+test('should prepare filled search', () => {
+  expect(prepareSearch('?foo=5&bar=baz')).toBe('foo=5&bar=baz')
+})
 
-  const parsedParams = parseSearchParams({
-    foo: 'number',
-  })
-
-  expect(parsedParams.foo).toEqual(5);
-  expect(parsedParams.bar).toEqual('baz');
+test('should prepare empty search', () => {
+  expect(prepareSearch('')).toBe('')
 })
