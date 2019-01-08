@@ -1,3 +1,5 @@
+[![NPM](https://img.shields.io/npm/v/url-search-utils.svg)](https://www.npmjs.com/package/url-search-utils)
+
 # url-search-utils
 A simple set of utils for manipulate search params in query string. Supports the hash and browser histories.
 
