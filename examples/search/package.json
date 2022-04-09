@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
-    "moment": "^2.23.0",
+    "moment": "^2.29.2",
     "url-search-utils": "link:../../"
   }
 }
