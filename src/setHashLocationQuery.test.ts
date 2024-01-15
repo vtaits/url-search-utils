@@ -1,5 +1,7 @@
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 import { setHashLocationQuery } from "./setHashLocationQuery";
+
+const replaceState = vi.spyOn(window.history, "replaceState");
 
 test("should set hash location query", () => {
 	window.location.hash = "/page/";
@@ -8,5 +10,6 @@ test("should set hash location query", () => {
 		foo: 5,
 	});
 
-	expect(window.location.hash).toEqual("#/page/?foo=5");
+	expect(replaceState).toHaveBeenCalledTimes(1);
+	expect(replaceState).toHaveBeenCalledWith(null, "", "#/page/?foo=5");
 });
