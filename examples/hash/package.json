@@ -1,20 +1,14 @@
 {
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "vite"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.2.3",
-    "babel-loader": "^8.0.5",
-    "path": "^0.12.7",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
   },
   "dependencies": {
-    "@babel/runtime": "^7.2.0",
-    "moment": "^2.29.4",
+    "date-fns": "^3.2.0",
+    "krustykrab": "^1.0.0",
     "url-search-utils": "link:../../"
   }
 }

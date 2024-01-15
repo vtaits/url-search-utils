@@ -20,7 +20,7 @@
     "test": "yarn lint && yarn test:unit",
     "lint": "biome check src",
     "lint:fix": "biome check src --apply-unsafe",
-    "format": "biome format src --write",
+    "format": "biome format src examples --write",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
     "prepublish": "yarn build"

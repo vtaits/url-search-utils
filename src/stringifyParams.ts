@@ -38,7 +38,8 @@ export function stringifyParams(
 						return null;
 
 					case "include-if-falsy":
-						if (Array.isArray(paramValue)) {
+						// biome-ignore lint/suspicious/useIsArray: `typescript` doesn't infer correctly `Array.isArray`
+						if (paramValue instanceof Array) {
 							if (paramValue.length === 0) {
 								return null;
 							}
@@ -60,7 +61,8 @@ export function stringifyParams(
 				}
 			}
 
-			if (Array.isArray(paramValue)) {
+			// biome-ignore lint/suspicious/useIsArray: `typescript` doesn't infer correctly `Array.isArray`
+			if (paramValue instanceof Array) {
 				if (paramValue.length === 0) {
 					return null;
 				}

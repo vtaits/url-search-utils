@@ -7,4 +7,4 @@ npm install
 npm start
 ```
 
-Then open [`http://localhost:8080/`](http://localhost:8080/).
+Then open [`http://localhost:5173/`](http://localhost:5173/).
