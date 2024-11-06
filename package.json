@@ -45,7 +45,7 @@
   "homepage": "https://github.com/vtaits/url-search-utils#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.5.1",
-    "happy-dom": "^13.1.0",
+    "happy-dom": "^15.10.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vitest": "^1.2.0"
