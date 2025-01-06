@@ -1,0 +1,18 @@
+{
+  "type": "module",
+  "name": "example-hash",
+  "scripts": {
+    "start": "bunx --bun vite"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.2.14",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "date-fns": "^3.2.0",
+    "krustykrab": "^1.0.0",
+    "url-search-utils": "^0.2.2"
+  },
+  "module": "index.ts"
+}

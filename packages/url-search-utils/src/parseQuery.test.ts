@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { type ParamType, parseQuery } from "./parseQuery";
 
 test("should return empty object for empty query", () => {

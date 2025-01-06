@@ -1,4 +1,6 @@
 {
+  "type": "module",
+  "name": "example-search",
   "scripts": {
     "start": "vite"
   },
@@ -9,6 +11,6 @@
   "dependencies": {
     "date-fns": "^3.2.0",
     "krustykrab": "^1.0.0",
-    "url-search-utils": "link:../../"
+    "url-search-utils": "^0.2.2"
   }
 }

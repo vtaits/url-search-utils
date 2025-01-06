@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { parseHashParams } from "./parseHashParams";
 
 test("should parse hash params", () => {

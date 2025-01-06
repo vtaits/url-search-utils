@@ -56,13 +56,13 @@ export function parseQuery(
 							throw new Error("accumulator is not an array");
 						}
 
-						acc.push(parseFloat(value));
+						acc.push(Number.parseFloat(value));
 
 						return res;
 					}
 
 					case "number":
-						res[name] = parseFloat(value);
+						res[name] = Number.parseFloat(value);
 
 						return res;
 

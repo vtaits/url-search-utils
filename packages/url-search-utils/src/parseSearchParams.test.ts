@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { prepareSearch } from "./parseSearchParams";
 
 test("should prepare filled search", () => {

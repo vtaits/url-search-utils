@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { parseHashLocationQuery } from "./parseHashLocationQuery";
 
 test("should parse hash location query", () => {

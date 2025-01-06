@@ -1,53 +1,15 @@
 {
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "name": "url-search-utils",
-  "version": "0.2.2",
-  "description": "Utils for manipulate search params in query string.",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "typings": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsup src/index.ts --sourcemap --format esm,cjs --dts --legacy-output",
-    "test": "yarn lint && yarn test:unit",
-    "lint": "biome check src",
-    "lint:fix": "biome check src --apply-unsafe",
-    "format": "biome format src examples --write",
-    "test:unit": "vitest run",
-    "test:unit:watch": "vitest",
-    "prepublish": "yarn build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vtaits/url-search-utils.git"
-  },
-  "keywords": [
-    "url",
-    "search",
-    "query",
-    "location",
-    "hash",
-    "parser"
-  ],
-  "author": "Vadim Taits",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vtaits/url-search-utils/issues"
-  },
-  "homepage": "https://github.com/vtaits/url-search-utils#readme",
+  "module": "index.ts",
+  "type": "module",
   "devDependencies": {
-    "@biomejs/biome": "^1.5.1",
-    "happy-dom": "^15.10.1",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "vitest": "^1.2.0"
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }

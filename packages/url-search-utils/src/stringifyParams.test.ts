@@ -1,4 +1,4 @@
-import { expect, test } from "vitest";
+import { expect, test } from "bun:test";
 import { parseQuery } from "./parseQuery";
 import { type ParamType, stringifyParams } from "./stringifyParams";
 

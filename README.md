@@ -5,18 +5,20 @@ A simple set of utils for manipulate search params in query string. Supports the
 
 ## Installation
 
-```
+```sh
 npm install url-search-utils --save
+yarn add url-search-utils
+bun add url-search-utils
 ```
 
 ## Api docs
 
 ### Parsing query
 
-```
+```ts
 import {parseSearchParams, parseHashParams, parseHashLocationQuery} from 'url-search-utils';
 
-...
+// ...
 
 // parse get arguments
 // e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
@@ -61,10 +63,10 @@ const parsed = parseSearchParams({
 
 ### Setting query
 
-```
+```ts
 import {setSearchParams, setHashParams, setHashLocationQuery} from 'url-search-utils';
 
-...
+// ...
 
 // set get arguments
 // e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
@@ -106,3 +108,10 @@ setSearchParams({
 //  sets query
 //  '?page=3&page_size=20&date=2017-09-06&filters=1&filters=2&filters=3'
 ```
+
+### Local development
+
+This project uses [Bun](https://bun.sh/)
+
+* The core package is [here](https://github.com/vtaits/url-search-utils/tree/master/packages/url-search-utils)
+* The examples are [hash](https://github.com/vtaits/url-search-utils/tree/master/packages/example-hash) and [search](https://github.com/vtaits/url-search-utils/tree/master/packages/example-search)

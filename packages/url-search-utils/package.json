@@ -1,0 +1,56 @@
+{
+  "type": "module",
+  "name": "url-search-utils",
+  "version": "0.2.2",
+  "description": "Utils for manipulate search params in query string.",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build:bun": "bun build ./src/index.ts --outdir ./build",
+    "build": "tsup src/index.ts --sourcemap --format esm,cjs --dts --legacy-output",
+    "test": "bun run lint && bun run test:unit",
+    "lint": "biome check src",
+    "lint:fix": "biome check src --write --unsafe",
+    "format": "biome format src examples --write",
+    "test:unit": "bun test",
+    "test:unit:watch": "bun test --watch",
+    "prepublish": "bun run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtaits/url-search-utils.git"
+  },
+  "keywords": [
+    "url",
+    "search",
+    "query",
+    "location",
+    "hash",
+    "parser"
+  ],
+  "author": "Vadim Taits",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vtaits/url-search-utils/issues"
+  },
+  "homepage": "https://github.com/vtaits/url-search-utils#readme",
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.1",
+    "@happy-dom/global-registrator": "^16.3.0",
+    "@types/bun": "latest",
+    "happy-dom": "^15.10.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
