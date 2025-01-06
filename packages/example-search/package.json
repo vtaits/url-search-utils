@@ -5,12 +5,12 @@
     "start": "vite"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
-    "vite": "^5.1.8"
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
   },
   "dependencies": {
-    "date-fns": "^3.2.0",
-    "krustykrab": "^1.0.0",
+    "date-fns": "^4.1.0",
+    "krustykrab": "^1.1.0",
     "url-search-utils": "^0.2.2"
   }
 }

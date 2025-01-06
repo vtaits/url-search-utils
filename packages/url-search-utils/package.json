@@ -46,11 +46,11 @@
   },
   "homepage": "https://github.com/vtaits/url-search-utils#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.5.1",
+    "@biomejs/biome": "^1.9.4",
     "@happy-dom/global-registrator": "^16.3.0",
     "@types/bun": "latest",
-    "happy-dom": "^15.10.1",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3"
+    "happy-dom": "^16.3.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
   }
 }
