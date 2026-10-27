@@ -1,6 +1,10 @@
 import { expect, test } from "bun:test";
-import { parseQuery } from "./parseQuery";
-import { type ParamType, stringifyParams } from "./stringifyParams";
+import { parseQuery } from "./parseQuery.js";
+import { stringifyParams } from "./stringifyParams.js";
+
+/**
+ * @import { ParamType } from "./stringifyParams.js"
+ */
 
 test("should return empty string for empty params object", () => {
 	const result = stringifyParams({});
@@ -156,7 +160,9 @@ test("should throw an exception for unknown param type", () => {
 			},
 			{},
 			{
-				testParam: "test-type" as unknown as ParamType,
+				testParam: /** @type {ParamType} */ (
+					/** @type {unknown} */ ("test-type")
+				),
 			},
 		);
 	}).toThrowError(
@@ -177,7 +183,7 @@ test("should serialize array", () => {
 
 	expect(parsedResult.param1).toEqual("value1");
 	expect(parsedResult.param2).toEqual("value2");
-	expect((parsedResult.arrayParam as string[]).sort()).toEqual([
+	expect(/** @type {string[]} */ (parsedResult.arrayParam).sort()).toEqual([
 		"1",
 		"2",
 		"test",

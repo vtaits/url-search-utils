@@ -1,21 +1,19 @@
-import format from "date-fns/format";
-import parse from "date-fns/parse";
+import { format } from "date-fns/format";
+import { parse } from "date-fns/parse";
 import { unwrap } from "krustykrab";
-import { parseSearchParams, setSearchParams } from "url-search-utils";
+import { parseHashParams, setHashParams } from "url-search-utils";
 
-const strInput = unwrap(
-	document.querySelector('[name="str"]'),
-) as HTMLInputElement;
-const checkboxes = [
-	...document.querySelectorAll('[name="arr"]'),
-] as HTMLInputElement[];
-const dateInput = unwrap(
-	document.querySelector('[name="date"]'),
-) as HTMLInputElement;
+/** @type {HTMLInputElement} */
+const strInput = unwrap(document.querySelector('[name="str"]'));
+const checkboxes = /** @type {HTMLInputElement[]} */ (
+	/** @type {unknown[]} */ ([...document.querySelectorAll('[name="arr"]')])
+);
+/** @type {HTMLInputElement} */
+const dateInput = unwrap(document.querySelector('[name="date"]'));
 
 const applyButton = unwrap(document.getElementById("apply"));
 
-const currentParams = parseSearchParams({
+const currentParams = parseHashParams({
 	arr: "array-of-strings",
 	date: (value) => format(parse(value, "dd.MM.yyyy", new Date()), "yyyy-MM-dd"),
 });
@@ -26,7 +24,7 @@ if (typeof currentParams.str === "string") {
 
 const arrValue = currentParams.arr;
 
-if (arrValue instanceof Array) {
+if (Array.isArray(arrValue)) {
 	checkboxes.forEach((checkbox) => {
 		if (arrValue.includes(checkbox.value)) {
 			checkbox.checked = true;
@@ -45,13 +43,13 @@ applyButton.onclick = () => {
 		date: dateInput.value,
 	};
 
-	setSearchParams(
+	setHashParams(
 		values,
 		{},
 		{
 			date: (date) =>
 				date
-					? format(parse(date, "yyyy-MM-dd", new Date()), "dd.MM.yyyy")
+					? format(parse(String(date), "yyyy-MM-dd", new Date()), "dd.MM.yyyy")
 					: null,
 		},
 	);

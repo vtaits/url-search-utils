@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { parseHashLocationQuery } from "./parseHashLocationQuery";
+import { parseHashLocationQuery } from "./parseHashLocationQuery.js";
 
 test("should parse hash location query", () => {
 	window.location.hash = "#/page/?foo=5&bar=baz";

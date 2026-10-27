@@ -1,5 +1,9 @@
 import { expect, test } from "bun:test";
-import { type ParamType, parseQuery } from "./parseQuery";
+import { parseQuery } from "./parseQuery.js";
+
+/**
+ * @import { ParamType } from "./parseQuery.js"
+ */
 
 test("should return empty object for empty query", () => {
 	const result = parseQuery("");
@@ -79,8 +83,9 @@ test("should apply function for serialize param to object", () => {
 
 	const result = parseQuery(queryString, {
 		test: (value, acc = {}) => {
-			(acc as Record<string, number>)[value] =
-				((acc as Record<string, number>)[value] || 0) + 1;
+			const casted = /** @type {Record<string, number>} */ (acc);
+
+			casted[value] = (casted[value] || 0) + 1;
 
 			return acc;
 		},
@@ -103,7 +108,7 @@ test("should throw an exception for unknown param type", () => {
 			"nottest1=value1&nottest2=value2&test=3&test=1&test=4&test=1";
 
 		parseQuery(queryString, {
-			test: "test-type" as unknown as ParamType,
+			test: /** @type {ParamType} */ (/** @type {unknown} */ ("test-type")),
 		});
 	}).toThrowError('Unknown type of parameter for parse "test": "test-type"');
 });

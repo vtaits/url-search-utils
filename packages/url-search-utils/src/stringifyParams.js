@@ -1,17 +1,22 @@
-export type AtomicParam = string | number | boolean;
+/**
+ * @typedef {string | number | boolean} AtomicParam
+ */
 
-export type Param = AtomicParam | readonly AtomicParam[];
+/**
+ * @typedef {AtomicParam | readonly AtomicParam[]} Param
+ */
 
-export type ParamType =
-	| ((value: Param | null) => AtomicParam | null)
-	| "exclude"
-	| "include-if-falsy";
+/**
+ * @typedef {((value: Param | null) => AtomicParam | null) | "exclude" | "include-if-falsy"} ParamType
+ */
 
-export function stringifyParams(
-	params: Record<string, Param | null>,
-	mapParamsNames: Partial<Record<string, string>> = {},
-	paramTypes: Partial<Record<string, ParamType>> = {},
-) {
+/**
+ * @param {Record<string, Param | null>} params
+ * @param {Partial<Record<string, string>>} [mapParamsNames={}]
+ * @param {Partial<Record<string, ParamType>>} [paramTypes={}]
+ * @returns
+ */
+export function stringifyParams(params, mapParamsNames = {}, paramTypes = {}) {
 	return Object.keys(params)
 		.map((rawParamName) => {
 			const paramName = mapParamsNames[rawParamName] || rawParamName;

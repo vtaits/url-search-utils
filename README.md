@@ -1,6 +1,7 @@
 [![NPM](https://img.shields.io/npm/v/url-search-utils.svg)](https://www.npmjs.com/package/url-search-utils)
 
 # url-search-utils
+
 A simple set of utils for manipulate search params in query string. Supports the hash and browser histories.
 
 ## Installation
@@ -16,30 +17,34 @@ bun add url-search-utils
 ### Parsing query
 
 ```ts
-import {parseSearchParams, parseHashParams, parseHashLocationQuery} from 'url-search-utils';
+import {
+	parseSearchParams,
+	parseHashParams,
+	parseHashLocationQuery,
+} from "url-search-utils";
 
 // ...
 
 // parse get arguments
 // e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
-parseSearchParams(config)
+parseSearchParams(config);
 
 // parse get-like arguments in hash
 // e.g. http://127.0.0.1:8080/page/#foo=5&bar=baz
-parseHashParams(config)
+parseHashParams(config);
 
 // parse location-query-like arguments in hash
 // e.g. http://127.0.0.1:8080/#/page/?foo=5&bar=baz
-parseHashLocationQuery(config)
+parseHashLocationQuery(config);
 ```
 
 `config` is an object with keys is get-params names and values is one of:
 
- - `'number'` for numeric params.
- - `'array-of-strings'` for arrays of strings.
- - `'array-of-numbers'` for arrays of numbers.
- - `'exclude'` for exclude param from result.
- - `function(value, accumulator = initialValue) {...}` where value is current value of found get-param and accumulator is value from previous function call if param with current name occurs several times (`undefined` by default).
+- `'number'` for numeric params.
+- `'array-of-strings'` for arrays of strings.
+- `'array-of-numbers'` for arrays of numbers.
+- `'exclude'` for exclude param from result.
+- `function(value, accumulator = initialValue) {...}` where value is current value of found get-param and accumulator is value from previous function call if param with current name occurs several times (`undefined` by default).
 
 For example:
 
@@ -64,21 +69,25 @@ const parsed = parseSearchParams({
 ### Setting query
 
 ```ts
-import {setSearchParams, setHashParams, setHashLocationQuery} from 'url-search-utils';
+import {
+	setSearchParams,
+	setHashParams,
+	setHashLocationQuery,
+} from "url-search-utils";
 
 // ...
 
 // set get arguments
 // e.g. http://127.0.0.1:8080/page/?foo=5&bar=baz
-setSearchParams(values, mapParamsNames, config)
+setSearchParams(values, mapParamsNames, config);
 
 // set get-like arguments in hash
 // e.g. http://127.0.0.1:8080/page/#foo=5&bar=baz
-setHashParams(values, mapParamsNames, config)
+setHashParams(values, mapParamsNames, config);
 
 // set location-query-like arguments in hash
 // e.g. http://127.0.0.1:8080/#/page/?foo=5&bar=baz
-setHashLocationQuery(values, mapParamsNames, config)
+setHashLocationQuery(values, mapParamsNames, config);
 ```
 
 `values` is an object that should be setted to query.
@@ -87,11 +96,11 @@ setHashLocationQuery(values, mapParamsNames, config)
 
 `config` is an object with keys is specific keys from `values` (or values from `mapParamsNames`) and values:
 
- - `'include-if-falsy'` for include params with falsy values as empty strings to query.
- - `'exclude'` for exclude param from result.
- - `function(value) {...}` where value is value for serialize. If returns `null`, param won't included to search.
- 
- For example:
+- `'include-if-falsy'` for include params with falsy values as empty strings to query.
+- `'exclude'` for exclude param from result.
+- `function(value) {...}` where value is value for serialize. If returns `null`, param won't included to search.
+
+For example:
 
 ```
 setSearchParams({
@@ -113,5 +122,5 @@ setSearchParams({
 
 This project uses [Bun](https://bun.sh/)
 
-* The core package is [here](https://github.com/vtaits/url-search-utils/tree/master/packages/url-search-utils)
-* The examples are [hash](https://github.com/vtaits/url-search-utils/tree/master/packages/example-hash) and [search](https://github.com/vtaits/url-search-utils/tree/master/packages/example-search)
+- The core package is [here](https://github.com/vtaits/url-search-utils/tree/master/packages/url-search-utils)
+- The examples are [hash](https://github.com/vtaits/url-search-utils/tree/master/packages/example-hash) and [search](https://github.com/vtaits/url-search-utils/tree/master/packages/example-search)

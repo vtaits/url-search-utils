@@ -1,21 +1,23 @@
-export type ParamType =
-	| ((value: string, acc: unknown) => unknown)
-	| "array-of-strings"
-	| "array-of-numbers"
-	| "number"
-	| "exclude";
+/**
+ * @typedef {((value: string, acc: unknown) => unknown) | "array-of-strings" | "array-of-numbers" | "number" | "exclude"} ParamType
+ */
 
-export function parseQuery(
-	search: string,
-	paramTypes: Partial<Record<string, ParamType>> = {},
-) {
+/**
+ * @param {string} search
+ * @param {Partial<Record<string, ParamType>>} [paramTypes={}]
+ * @returns
+ */
+export function parseQuery(search, paramTypes = {}) {
 	if (search.length === 0) {
 		return {};
 	}
 
-	return search
-		.split("&")
-		.reduce<Partial<Record<string, unknown>>>((res, searchItem) => {
+	return search.split("&").reduce(
+		/**
+		 * @param {Partial<Record<string, unknown>>} res
+		 * @param {string} searchItem
+		 */
+		(res, searchItem) => {
 			const [name, rawValue] = searchItem.split("=");
 			const value = decodeURIComponent(rawValue);
 
@@ -79,5 +81,7 @@ export function parseQuery(
 			res[name] = value;
 
 			return res;
-		}, {});
+		},
+		{},
+	);
 }

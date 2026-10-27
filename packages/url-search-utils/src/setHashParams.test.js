@@ -1,5 +1,5 @@
 import { expect, spyOn, test } from "bun:test";
-import { setHashParams } from "./setHashParams";
+import { setHashParams } from "./setHashParams.js";
 
 const replaceState = spyOn(window.history, "replaceState");
 

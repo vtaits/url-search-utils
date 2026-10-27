@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { parseHashParams } from "./parseHashParams";
+import { parseHashParams } from "./parseHashParams.js";
 
 test("should parse hash params", () => {
 	window.location.hash = "#foo=5&bar=baz";
